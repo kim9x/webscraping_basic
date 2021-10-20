@@ -1,18 +1,8 @@
 import requests
-res = requests.get("http://google.com")
-# res = requests.get("http://naver.com")
-# res = requests.get("http://nadocoding.tistory.com/")
+url = "http://nadocoding.tistory.com/"
+header = {"User_Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36"}
+
+res = requests.get(url, headers=header)
 res.raise_for_status()
-print("웹 스크래핑을 진행합니다.")
-
-# print("응답코드:", res.status_code)
-# if res.status_code == requests.codes.ok:
-#     print("정상입니다.")
-# else:
-#     print("문제가 생겼습니다. [에러코드:", res.status_code,"]")
-
-print(len(res.text))
-print(res.text)
-
-with open("mygoogle.html", "w", encoding="utf8") as f:
+with open("nadocoding.html", "w", encoding="utf8") as f:
     f.write(res.text)
